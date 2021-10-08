@@ -5,6 +5,7 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import View, DeleteView, ListView, CreateView
 from django.contrib.auth.forms import UserCreationForm
+from .forms import RegistrationUserForm
 from django.utils.decorators import method_decorator
 
 
@@ -18,11 +19,21 @@ def auth(request):
     return render(request, "mainapp/auth.html", {})
 
 
-class AuthView(CreateView):
+class AuthView(View):
+    forms = UserCreationForm
+
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'mainapp/auth.html', {"form": forms})
+
+
+class CheckAuthView(View):
+
+    def dispatch(self, request, *args, **kwargs):
+        print(request.method)
+        return super().dispatch(request, *args, **kwargs)
     
-    form_class = UserCreationForm
-    template_name = "mainapp/auth.html"
-    success_url = reverse_lazy("main_app:auth")
+
 
 
 class JsonAuthView(View):

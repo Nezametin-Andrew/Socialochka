@@ -22,22 +22,44 @@
         <!-- FORM WRAPPER -->
         <div class="form-wrapp">
             <!-- CONTAINER -->
+
             <div class="container">
+
                 <div class="row main-form">
-                    {% csrf_token %}
-                    <form class="" method="post" action="#">
                     
-                        <div class="form-group">
-                            <label for="name" class="cols-sm-2 control-label">Your Name</label>
+                    <form class="form-container" method="POST" action="/check-auth">
+                        {% csrf_token %}
+                        <div class="form-group login">
+                            <label for="username" class="cols-sm-2 control-label">Login</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name"/>
+                                    <input type="text" class="form-control" name="username" id="name" placeholder="Enter your Name"/>
                                 </div>
                             </div>
                         </div>
-                    
-                        <div class="form-group">
+                        
+                        <div class="form-group first-name">
+                            <label for="first_name" class="cols-sm-2 control-label">First name</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="first_name" id="username" placeholder="Enter your Username"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group last-name">
+                            <label for="last_name" class="cols-sm-2 control-label">Last name</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="last_name" id="lastname" placeholder="Enter your Username"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group email">
                             <label for="email" class="cols-sm-2 control-label">Your Email</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
@@ -47,17 +69,7 @@
                             </div>
                         </div>
                     
-                        <div class="form-group">
-                            <label for="username" class="cols-sm-2 control-label">Username</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="username" id="username" placeholder="Enter your Username"/>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="form-group">
+                        <div class="form-group pass1">
                             <label for="password" class="cols-sm-2 control-label">Password</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
@@ -67,7 +79,7 @@
                             </div>
                         </div>
                     
-                        <div class="form-group">
+                        <div class="form-group pass2">
                             <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
@@ -77,14 +89,24 @@
                             </div>
                         </div>
                     
-                        <div class="form-group ">
-                            <a href="#" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a>
+                        <div class="form-group btn-send">
+                            <input type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button" value="Register">
                         </div>
                     
                     </form>
                 </div>
+
+                <div class="log-or-reg">
+                    <div class="login-btn">
+                        <span class="render-login">Вход</span>
+                    </div>
+                    <div class="registration-btn">
+                        <span class="render-registration">Регистрация</span>
+                    </div>
+                </div>
             <!-- END CONTAINER -->
             </div>
+
         <!-- END FORM WRAPPER -->
         </div>
     <!-- END CHILD WRAPPER -->

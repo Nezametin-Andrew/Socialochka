@@ -23,4 +23,4 @@ class RegistrationUserForm(UserCreationForm):
     class Meta:
         model = CustomUser
         exclude = ('',)
-        fields = ('first_name', 'last_name', 'email')
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')

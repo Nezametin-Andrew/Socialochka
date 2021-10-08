@@ -78,7 +78,7 @@ input, input::-webkit-input-placeholder {
 }
 
 .main-form{
-    margin-top: 30px;
+    margin-top: 100px;
     margin: 0 auto;
     max-width: 400px;
     padding: 10px 40px;
@@ -96,3 +96,69 @@ span.input-group-addon i {
 .login-button{
     margin-top: 5px;
 }
+
+.log-or-reg{
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+
+    height: 50px;
+    justify-content: space-between;
+    background:#009edf;
+}
+
+.login-btn{
+    text-align: center;
+    width: 50%;
+    height: 100%;
+    border-top: 1px solid  white;
+    cursor: pointer;
+    border-radius: 2px;
+    border-top-right-radius: 5px;
+    padding-top: 10px;
+}
+
+.nonactive:hover{
+    background-color: #1887b3;
+}
+
+.login-btn > span{
+    font-size: 18px;
+    color: white;
+}
+
+.render-login{
+
+}
+
+.registration-btn{
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    border-top: 1px solid white;
+    cursor: pointer;
+    border-top-left-radius: 5px;
+    padding-top: 10px;
+}
+
+.registration-btn > span{
+    font-size: 18px;
+    color: white;
+}
+
+.render-registration{
+
+}
+
+
+/*.main-form{
+    margin-top: 30px;
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 10px 40px;
+    background:#009edf;
+    color: #FFF;
+    text-shadow: none;
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+}
+*/
