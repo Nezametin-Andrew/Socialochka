@@ -20,19 +20,16 @@ def auth(request):
 
 
 class AuthView(View):
-
-    def get(self, request, *args, **kwargs):
-        form = UserCreationForm
-        return render(request, 'mainapp/auth.html', {"form": form})
-
-
-class CheckAuthView(View):
-
-    def dispatch(self, request, *args, **kwargs):
-        print(request.method)
-        return super().dispatch(request, *args, **kwargs)
     
+    def post(self, request, *args, **kwargs):
+        return render(request, 'mainapp/auth.html')
 
+
+class RegistrationView(CreateView):    
+
+    form_class = RegistrationUserForm
+    template_name = 'mainapp/auth.html'
+    success_url = reverse_lazy('main_app:index')
 
 
 class JsonAuthView(View):

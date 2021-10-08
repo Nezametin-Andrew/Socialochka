@@ -11,66 +11,27 @@ async function request(url = '', data = {}) {
   }
 
 
-// request(
-//   "http://localhost:8000/auth/option",
-//   {"data": "hello"}
-//     ).then((data) => {
-//      console.log(data['data'])
-// }
-// )
-
-
-
+let href = window.location.href.split("/");
 let fields = document.querySelectorAll('.form-group');
-let formContainer = document.querySelector('.form-container');
-let loginCont = document.querySelector(".login-btn");
-let registCont = document.querySelector(".registration-btn");
+
+href = href[href.length - 2];
+let btnSend = fields[fields.length - 1].childNodes;
+
+let LIST_ICON_REG = [
+  'fa fa-user fa', 'fa fa-users fa', 'fa fa-users fa',
+  'fa fa-envelope fa', 'fa fa-lock fa-lg', 'fa fa-lock fa-lg'
+  ];
+
+let LIST_ICON_LOG = ['fa fa-user fa', 'fa fa-lock fa-lg'];
 
 
+if(href == "registration"){
+  btnSend[1].setAttribute('value', 'Регистрация');
 
-function cleanContSwitch(){
-  formContainer.textContent = "";
+  for(let i =0; i < LIST_ICON_REG.length; i++){
+    fields[i].childNodes[3].childNodes[1].childNodes[1].childNodes[0].setAttribute("class", LIST_ICON_REG[i]);
+  }
 }
-
-
-function renderLoginForm(){
-  cleanContSwitch();
-  loginCont.style.borderTop = "0px";
-  loginCont.style.borderRight = "0px"
-  registCont.style.borderLeft = "1px solid white"
-  registCont.style.borderTop = "1px solid white"
-  registCont.classList.add('nonactive');
-  formContainer.appendChild(fields[0]);
-  formContainer.appendChild(fields[fields.length - 3]);
-  fields[fields.length -1].childNodes[1].textContent = "Login";
-  formContainer.appendChild(fields[fields.length - 1]);
+else if(href == "login"){
+  btnSend[1].setAttribute('value', 'Авторизация');
 }
-
-function renderRegistrationForm(){
-  cleanContSwitch();
-  registCont.style.borderTop = "0px";
-  registCont.style.borderLeft = "0px";
-  registCont.classList.remove("nonactive");
-  loginCont.style.borderTop = "1px solid white";
-  loginCont.style.borderRight = "1px solid white";
-  loginCont.classList.add('nonactive');
-  
-  for (let i = 0; i < fields.length; i++) formContainer.appendChild(fields[i]);
-
-
-}
-
-
-renderLoginForm();
-
-
-loginCont.addEventListener('click', () =>{
-
-  renderLoginForm();
-})
-
-
-registCont.addEventListener('click', () => {
-
-  renderRegistrationForm();
-})

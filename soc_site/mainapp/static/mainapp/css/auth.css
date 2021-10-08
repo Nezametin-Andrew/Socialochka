@@ -150,6 +150,10 @@ span.input-group-addon i {
 
 }
 
+.form-error{
+    color: red;
+}
+
 
 /*.main-form{
     margin-top: 30px;
