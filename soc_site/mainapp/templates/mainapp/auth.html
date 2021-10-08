@@ -29,7 +29,7 @@
                     
                     <form class="form-container" method="POST" action="/check-auth">
                         {% csrf_token %}
-                        <div class="form-group login">
+                        <!-- <div class="form-group login">
                             <label for="username" class="cols-sm-2 control-label">Login</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
@@ -91,8 +91,8 @@
                     
                         <div class="form-group btn-send">
                             <input type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button" value="Register">
-                        </div>
-                    
+                        </div> -->
+                        {{ form.as_p }}
                     </form>
                 </div>
 

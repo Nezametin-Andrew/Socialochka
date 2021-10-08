@@ -20,11 +20,10 @@ def auth(request):
 
 
 class AuthView(View):
-    forms = UserCreationForm
-
 
     def get(self, request, *args, **kwargs):
-        return render(request, 'mainapp/auth.html', {"form": forms})
+        form = UserCreationForm
+        return render(request, 'mainapp/auth.html', {"form": form})
 
 
 class CheckAuthView(View):
