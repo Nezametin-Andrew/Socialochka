@@ -4,31 +4,29 @@ from django.urls import reverse_lazy, reverse
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import View, DeleteView, ListView, CreateView
-from django.contrib.auth.forms import UserCreationForm
-from .forms import RegistrationUserForm
+from django.contrib.auth.views import LoginView 
+from .forms import RegistrationUserForm, LoginUserForm
 from django.utils.decorators import method_decorator
 
 
 
-def index(request):
-    return render(request, 'mainapp/index.html', {})
+class MainPageView(View):
 
-
-def auth(request):
-    form = UserCreationForm
-    return render(request, "mainapp/auth.html", {})
-
-
-class AuthView(View):
-    
-    def post(self, request, *args, **kwargs):
-        return render(request, 'mainapp/auth.html')
+    def get(self, request, *args, **kwargs):
+        return render(request, 'mainapp/index.html')
 
 
 class RegistrationView(CreateView):    
 
     form_class = RegistrationUserForm
     template_name = 'mainapp/auth.html'
+    success_url = reverse_lazy('main_app:index')
+
+
+class LoginView(LoginView):
+    
+    form_class = LoginUserForm
+    template_name = "mainapp/auth.html"
     success_url = reverse_lazy('main_app:index')
 
 
